@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+
+            <item
+                android:id="@+id/userEdit"
+                android:title="Edit"
+                android:icon="@drawable/round_mode_edit_24"/>
+            <item
+                android:id="@+id/userDelete"
+                android:title="Delete"
+                android:icon="@drawable/baseline_delete_24"
+                app:showAsAction="never"
+                />
+
+
+
+
+</menu>
