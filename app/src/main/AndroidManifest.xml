@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".FoodApp"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -15,10 +16,10 @@
         android:theme="@style/Theme.Kotlin_RecyclerView"
         tools:targetApi="31">
         <activity
-            android:name=".FoodDitailesActivity"
+            android:name=".ui.activitys.FoodDitailesActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.activitys.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

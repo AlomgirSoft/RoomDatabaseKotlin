@@ -1,6 +1,6 @@
-package com.example.kotlin_recyclerview
+package com.example.kotlin_recyclerview.utils
 
-import com.example.kotlin_recyclerview.RoomDatabase.FoodM
+import com.example.kotlin_recyclerview.models.FoodM
 
 object DataS  {
 

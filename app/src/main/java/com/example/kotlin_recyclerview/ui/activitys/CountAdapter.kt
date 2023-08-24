@@ -1,22 +1,23 @@
-package com.example.kotlin_recyclerview
+package com.example.kotlin_recyclerview.ui.activitys
 
 import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.widget.PopupMenu
 import android.widget.Toast
+import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import com.example.kotlin_recyclerview.RoomDatabase.FoodM
+import com.example.kotlin_recyclerview.R
+import com.example.kotlin_recyclerview.models.FoodM
 import com.example.kotlin_recyclerview.databinding.ItemCountBinding
 
-class CountAdapter (var context:Context, var veganFoodList:MutableList<FoodM>,var moreBtnLisetner:FoodItemListener): RecyclerView.Adapter<CountAdapter.CountViewHolder>(){
+class CountAdapter (var context:Context, var veganFoodList:MutableList<FoodM>, var moreBtnLisetner: FoodItemListener): RecyclerView.Adapter<CountAdapter.CountViewHolder>(){
 
     interface FoodItemListener{
         fun foodItemDelete(foodMore: FoodM)
 
-        fun foodItemUpdate(foodUpdate:FoodM)
+        fun foodItemUpdate(foodUpdate: FoodM)
 
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CountViewHolder {

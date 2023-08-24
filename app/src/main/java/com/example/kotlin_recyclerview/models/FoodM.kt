@@ -1,4 +1,4 @@
-package com.example.kotlin_recyclerview.RoomDatabase
+package com.example.kotlin_recyclerview.models
 
 import android.os.Parcelable
 import androidx.room.ColumnInfo

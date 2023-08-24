@@ -1,31 +1,44 @@
-package com.example.kotlin_recyclerview
+package com.example.kotlin_recyclerview.ui.activitys
 
+import android.app.Activity
+import android.app.Instrumentation
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import com.example.kotlin_recyclerview.RoomDatabase.FoodDatabase
-import com.example.kotlin_recyclerview.RoomDatabase.FoodM
+import androidx.activity.result.ActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.viewModels
+import com.example.kotlin_recyclerview.dbServiec.FoodDatabase
+import com.example.kotlin_recyclerview.models.FoodM
 import com.example.kotlin_recyclerview.databinding.ActivityFoodDitailesBinding
+import com.google.android.gms.cast.framework.media.ImagePicker
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class FoodDitailesActivity : AppCompatActivity() {
     lateinit var binding: ActivityFoodDitailesBinding
     lateinit var imageUri:String
     lateinit var name:String
     lateinit var description:String
+    lateinit var uri: String
+
+
+    private val viewModel:FoodInputViewModel by viewModels()
 
     companion object{
         const val KAY="kay"
         const val Update="Update"
         const val Submit="Submit"
     }
-    lateinit var    getFoodItem:FoodM
+   private lateinit var    getFoodItem: FoodM
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding=ActivityFoodDitailesBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        getFoodItem=FoodM()
+        getFoodItem= FoodM()
 
         binding.submitBtn.text= Submit
 
@@ -53,25 +66,35 @@ class FoodDitailesActivity : AppCompatActivity() {
           description=binding.edDescription.text.toString()
 
 
-         val insertData=FoodM(name = name, image = imageUri , description = description,"","","", id = getFoodItem.id)
+        // val insertData=
+            val foodIn= FoodM(name = name, image = uri , description = description,"","","", id = getFoodItem.id)
+        //  viewModel.insertFood(foodIn)
 
 
           if (binding.submitBtn.text.toString()== Submit){
-              FoodDatabase.getInstance(this@FoodDitailesActivity).getFoodDao().insertFood(insertData)
+             // FoodDatabase.getInstance(this@FoodDitailesActivity).getFoodDao().insertFood(insertData)
+              viewModel.insertFood(foodIn)
           }else{
-              FoodDatabase.getInstance(this@FoodDitailesActivity).getFoodDao().updateFood(insertData)
+             // FoodDatabase.getInstance(this@FoodDitailesActivity).getFoodDao().updateFood(insertData)
+              viewModel.updateFood(foodIn)
           }
 
 
 
 
 
-          val  intent=Intent(this@FoodDitailesActivity,MainActivity::class.java)
+          val  intent=Intent(this@FoodDitailesActivity, MainActivity::class.java)
           Toast.makeText(this,"Submit Done",Toast.LENGTH_LONG).show()
           startActivity(intent)
 
 
 
       }
+
+
+
+
+
     }
 }
+

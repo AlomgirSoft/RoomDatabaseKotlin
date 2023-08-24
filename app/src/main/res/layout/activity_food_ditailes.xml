@@ -4,7 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FoodDitailesActivity">
+    tools:context=".ui.activitys.FoodDitailesActivity">
+
+
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/imagePicker"
+
+    />
+
+
+
+
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/imageUri"
@@ -12,7 +29,8 @@
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+
+        app:layout_constraintTop_toBottomOf="@id/imagePicker"
         android:layout_margin="20dp">
 
         <com.google.android.material.textfield.TextInputEditText
